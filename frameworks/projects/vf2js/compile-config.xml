@@ -46,10 +46,6 @@
                 <uri>http://flex.apache.org/vf2js/ns</uri>
                 <manifest>manifest.xml</manifest>
             </namespace>
-            <namespace>
-                <uri>library://ns.adobe.com/flex/spark</uri>
-                <manifest>spark-manifest.xml</manifest>
-            </namespace>
         </namespaces>
 
         <source-path>
