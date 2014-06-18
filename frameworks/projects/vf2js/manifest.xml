@@ -23,11 +23,8 @@
     VF2JS Components
 
 -->
+
 <componentPackage>
-
-  <!-- components -->
-
-  <!-- Button -->
-  <component id="Button" class="vf2js.components.Button" />
-
+  <component id="Application" class="vf2js.components.Application"/>
+  <component id="Button" class="vf2js.components.Button"/>
 </componentPackage>

@@ -17,15 +17,22 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-package
+package vf2js.components
 {
-  internal class VF2JSClasses
-  {
-    /**
-     *  @private
-     *  This class is used to link additional classes into experimental.swc
-     *  beyond those that are found by dependecy analysis starting
-     *  from the classes specified in manifest.xml.
-     */
-  }
+
+import spark.components.Application;
+
+public class Application extends spark.components.Application
+{
+    //--------------------------------------------------------------------------
+    //
+    //  Constructor
+    //
+    //--------------------------------------------------------------------------
+
+    public function Application() {
+      super();
+    }
+}
+
 }
