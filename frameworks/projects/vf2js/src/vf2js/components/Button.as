@@ -20,7 +20,9 @@
 package vf2js.components
 {
 
-public class Button
+import spark.components.Button;
+
+public class Button extends spark.components.Button
 {
     //--------------------------------------------------------------------------
     //
@@ -28,7 +30,10 @@ public class Button
     //
     //--------------------------------------------------------------------------
 
-    public function Button() {}
+    public function Button() 
+    {
+        super();
+    }
 }
 
 }
