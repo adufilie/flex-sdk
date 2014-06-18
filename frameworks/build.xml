@@ -131,6 +131,7 @@
     	<antcall target="apache"/>
     	<antcall target="experimental"/>
     	<antcall target="experimental_mobile"/>
+    	<antcall target="vf2js"/>
         <antcall target="compile-automation"/>
     </target>
 	
@@ -241,6 +242,7 @@
     	<ant dir="${basedir}/projects/apache" target="other.locales"/>
     	<ant dir="${basedir}/projects/experimental" target="other.locales"/>
     	<ant dir="${basedir}/projects/experimental_mobile" target="other.locales"/>
+    	<ant dir="${basedir}/projects/vf2js" target="other.locales"/>
     </target>
     
     <target name="doc" >
@@ -268,6 +270,10 @@
         <ant dir="${basedir}/projects/apache" target="doc" />
     	<ant dir="${basedir}/projects/experimental" target="doc" />
     	<ant dir="${basedir}/projects/experimental_mobile" target="doc" />
+        <!-- removed until this project gets proper documentation -->
+        <!--
+        <ant dir="${basedir}/projects/vf2js" target="doc" />
+        -->
     </target>
    
     <!--
@@ -306,6 +312,7 @@
     	<ant dir="${basedir}/projects/apache" target="clean"/>
     	<ant dir="${basedir}/projects/experimental" target="clean"/>
     	<ant dir="${basedir}/projects/experimental_mobile" target="clean"/>
+        <ant dir="${basedir}/projects/vf2js" target="clean"/>
         <ant dir="${basedir}/javascript" target="clean"/>
     	<ant dir="${basedir}/themes/AeonGraphical" target="clean"/>
         <!-- delete the FlashBuilder executable directories -->
@@ -504,5 +511,9 @@
 	
     <target name="experimental_mobile" description="Clean build of experimental_mobile.swc">
         <ant dir="${basedir}/projects/experimental_mobile"/>
+    </target>
+	
+    <target name="vf2js" description="Clean build of vf2js.swc">
+        <ant dir="${basedir}/projects/vf2js"/>
     </target>
 </project>

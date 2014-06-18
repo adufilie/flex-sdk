@@ -468,6 +468,8 @@
 		<create-rsl rsl-dir="${basedir}/frameworks/rsls" swc-dir="${basedir}/frameworks/libs" swc-name="experimental" build-number="${release.version}.${build.number.date}"/>		
 		<!-- mobile experimental RSL -->
 		<create-rsl rsl-dir="${basedir}/frameworks/rsls" swc-dir="${basedir}/frameworks/libs" swc-name="experimental_mobile" build-number="${release.version}.${build.number.date}"/>		
+		<!-- vf2js RSL -->
+		<create-rsl rsl-dir="${basedir}/frameworks/rsls" swc-dir="${basedir}/frameworks/libs" swc-name="vf2js" build-number="${release.version}.${build.number.date}"/>		
 	</target>
 
     <target name="other.locales" description="Build resource SWCs for additional locales">
@@ -951,6 +953,7 @@ There are no known issues.
                 <include name="advancedgrids.swc"/>
                 <include name="spark_dmv.swc"/>
             	<include name="textLayout.swc"/>
+                <include name="vf2js.swc"/>
                 <exclude name="osmf.swc"/>
             </fileset>
         </copy>
