@@ -20,9 +20,7 @@
 package vf2js.components
 {
 
-import spark.components.Application;
-
-public class Application extends spark.components.Application
+public class Application
 {
     //--------------------------------------------------------------------------
     //
@@ -30,9 +28,8 @@ public class Application extends spark.components.Application
     //
     //--------------------------------------------------------------------------
 
-    public function Application() {
-      super();
-    }
+    public function Application() {}
+    
 }
 
 }

@@ -19,21 +19,15 @@
 
 package vf2js.components
 {
-
-import spark.components.Button;
-
-public class Button extends spark.components.Button
+    
+public class Button
 {
-    //--------------------------------------------------------------------------
-    //
-    //  Constructor
-    //
-    //--------------------------------------------------------------------------
 
-    public function Button() 
-    {
-        super();
-    }
+    public function Button() {}
+    
+    public var label:String;
+
+    public var x:Number;
+
 }
-
 }
