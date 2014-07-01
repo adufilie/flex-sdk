@@ -17,7 +17,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-package vf2js_s.components
+package vf2js_mx.components
 {
     
 public class Button
@@ -25,9 +25,5 @@ public class Button
 
     public function Button() {}
     
-    public var label:String;
-
-    public var x:Number;
-
 }
 }
