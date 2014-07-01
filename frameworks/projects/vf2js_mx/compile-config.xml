@@ -38,7 +38,7 @@
     <library-path/>
     <namespaces>
       <namespace>
-        <uri>http://flex.apache.org/vf2js_s/ns</uri>
+        <uri>http://flex.apache.org/vf2js_mx/ns</uri>
         <manifest>manifest.xml</manifest>
       </namespace>
     </namespaces>
@@ -49,7 +49,7 @@
     <warn-no-constructor>false</warn-no-constructor>
   </compiler>
   <include-namespaces>
-    <uri>http://flex.apache.org/vf2js_s/ns</uri>
+    <uri>http://flex.apache.org/vf2js_mx/ns</uri>
   </include-namespaces>
   <include-classes>
     <class>VF2JSClasses</class>

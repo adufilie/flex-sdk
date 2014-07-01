@@ -38,7 +38,7 @@
   <include-classes/>
   <include-namespaces/>
   <include-resource-bundles>
-    <bundle>vf2js_s</bundle>
+    <bundle>vf2js_mx</bundle>
   </include-resource-bundles>
   <target-player>${playerglobal.version}</target-player>
 </flex-config>

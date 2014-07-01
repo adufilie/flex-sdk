@@ -18,7 +18,7 @@
 
 -->
 
-<project name="vf2js_s" default="main" basedir=".">
+<project name="vf2js_mx" default="main" basedir=".">
   <property name="FLEX_HOME" location="${basedir}/../../.."/>
   <property file="${FLEX_HOME}/env.properties"/>
   <property environment="env"/>
@@ -26,11 +26,11 @@
   <macrodef name="bundle">
     <attribute name="locale"/>
     <sequential>
-      <echo message="Compiling frameworks/locale/@{locale}/vf2js_s_rb.swc"/>
+      <echo message="Compiling frameworks/locale/@{locale}/vf2js_mx_rb.swc"/>
       <!-- Load the <compc> task. We can't do this at the <project> level -->
       <!-- because targets that run before flexTasks.jar gets built would fail. -->
       <taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/lib/flexTasks.jar"/>
-      <compc fork="true" output="${FLEX_HOME}/frameworks/locale/@{locale}/vf2js_s_rb.swc">
+      <compc fork="true" output="${FLEX_HOME}/frameworks/locale/@{locale}/vf2js_mx_rb.swc">
         <jvmarg line="${compc.jvm.args}"/>
         <load-config filename="bundle-config.xml"/>
         <arg value="+playerglobal.version=${playerglobal.version}"/>
@@ -43,7 +43,7 @@
     <attribute name="locale"/>
     <sequential>
       <mkdir dir="${basedir}/bundles/@{locale}/docs"/>
-      <zip destfile="${FLEX_HOME}/frameworks/locale/@{locale}/vf2js_s_rb.swc" update="true">
+      <zip destfile="${FLEX_HOME}/frameworks/locale/@{locale}/vf2js_mx_rb.swc" update="true">
         <zipfileset dir="${basedir}/bundles/@{locale}/docs" prefix="docs">
           <include name="*.*"/>
         </zipfileset>
@@ -58,8 +58,8 @@
     <sequential>
       <delete failonerror="false">
         <fileset dir="${FLEX_HOME}/frameworks/locale">
-          <include name="@{locale}/vf2js_s_rb.swc"/>
-          <include name="@{locale}/vf2js_s_rb.swc.incr"/>
+          <include name="@{locale}/vf2js_mx_rb.swc"/>
+          <include name="@{locale}/vf2js_mx_rb.swc.incr"/>
         </fileset>
       </delete>
     </sequential>
@@ -73,7 +73,7 @@
       <run.fat.swc/>
     </sequential>
   </macrodef>
-  <target name="main" depends="clean,compile" description="Clean build of vf2js_s.swc and default locale">
+  <target name="main" depends="clean,compile" description="Clean build of vf2js_mx.swc and default locale">
     <bundle locale="${locale}"/>
   </target>
   <target name="other.locales" depends="bundles" description="Build other locale SWCs"/>
@@ -91,21 +91,21 @@
         <include name="bundles/en_US/packages.dita"/>
       </fileset>
       <fileset dir="${FLEX_HOME}/frameworks/libs">
-        <include name="vf2js_s.swc"/>
-        <include name="vf2js_s.swc.incr"/>
+        <include name="vf2js_mx.swc"/>
+        <include name="vf2js_mx.swc.incr"/>
       </fileset>
     </delete>
   </target>
   <target name="bundles-clean">
     <delete failonerror="false">
       <fileset dir="${FLEX_HOME}/frameworks/locale">
-        <include name="*/vf2js_s_rb.swc"/>
-        <include name="*/vf2js_s_rb.swc.incr"/>
+        <include name="*/vf2js_mx_rb.swc"/>
+        <include name="*/vf2js_mx_rb.swc.incr"/>
       </fileset>
     </delete>
   </target>
-  <target name="compile" description="Compiles vf2js_s.swc">
-    <echo message="Compiling frameworks/libs/vf2js_s.swc"/>
+  <target name="compile" description="Compiles vf2js_mx.swc">
+    <echo message="Compiling frameworks/libs/vf2js_mx.swc"/>
     <!-- Load the <compc> task. We can't do this at the <project> level -->
     <!-- because targets that run before flexTasks.jar gets built would fail. -->
     <taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/lib/flexTasks.jar"/>
@@ -122,14 +122,14 @@
       Write a bundle list of referenced resource bundles
       into the file bundles.properties in this directory.
     -->
-    <compc fork="true" output="${FLEX_HOME}/frameworks/libs/vf2js_s.swc">
+    <compc fork="true" output="${FLEX_HOME}/frameworks/libs/vf2js_mx.swc">
       <jvmarg line="${compc.jvm.args}"/>
       <load-config filename="compile-config.xml"/>
       <arg value="+playerglobal.version=${playerglobal.version}"/>
       <arg value="+env.PLAYERGLOBAL_HOME=${env.PLAYERGLOBAL_HOME}"/>
     </compc>
   </target>
-  <target name="doc" depends="clean-temp-docs" description="updates vf2js_s.swc with asdoc xml">
+  <target name="doc" depends="clean-temp-docs" description="updates vf2js_mx.swc with asdoc xml">
     <!-- Load the <asdoc> task. We can't do this at the <project> level -->
     <!-- because targets that run before flexTasks.jar gets built would fail. -->
     <taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/lib/flexTasks.jar"/>
@@ -146,12 +146,12 @@
     <asdoc output="${FLEX_HOME}/tempDoc" lenient="true" failonerror="true" keep-xml="true" skip-xsl="true" fork="true">
       <compiler.source-path path-element="${basedir}/src"/>
       <doc-classes class="ExperimentalClasses"/>
-      <namespace uri="http://flex.apache.org/vf2js_s/ns" manifest="${basedir}/manifest.xml"/>
+      <namespace uri="http://flex.apache.org/vf2js_mx/ns" manifest="${basedir}/manifest.xml"/>
       <namespace uri="library://ns.adobe.com/flex/spark" manifest="${basedir}/spark-manifest.xml"/>
       <jvmarg line="${asdoc.jvm.args}"/>
     </asdoc>
-    <!-- updates vf2js_s.swc with asdoc xml -->
-    <zip destfile="${FLEX_HOME}/frameworks/locale/en_US/vf2js_s_rb.swc" update="true">
+    <!-- updates vf2js_mx.swc with asdoc xml -->
+    <zip destfile="${FLEX_HOME}/frameworks/locale/en_US/vf2js_mx_rb.swc" update="true">
       <zipfileset dir="${FLEX_HOME}/tempDoc/tempdita" prefix="docs">
         <include name="*.*"/>
         <exclude name="ASDoc_Config.xml"/>
