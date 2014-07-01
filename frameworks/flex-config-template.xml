@@ -112,8 +112,12 @@
             <manifest>experimental-manifest.xml</manifest>
          </namespace>
          <namespace>
-            <uri>http://flex.apache.org/vf2js/ns</uri>
-            <manifest>vf2js-manifest.xml</manifest>
+            <uri>http://flex.apache.org/vf2js_mx/ns</uri>
+            <manifest>vf2js_mx-manifest.xml</manifest>
+         </namespace>
+         <namespace>
+            <uri>http://flex.apache.org/vf2js_s/ns</uri>
+            <manifest>vf2js_s-manifest.xml</manifest>
          </namespace>
       </namespaces>
 

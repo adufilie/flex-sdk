@@ -25,6 +25,6 @@
 -->
 
 <componentPackage>
-  <component id="Application" class="vf2js.components.Application"/>
-  <component id="Button" class="vf2js.components.Button"/>
+  <component id="Application" class="vf2js_s.components.Application"/>
+  <component id="Button" class="vf2js_s.components.Button"/>
 </componentPackage>

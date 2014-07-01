@@ -131,7 +131,8 @@
     	<antcall target="apache"/>
     	<antcall target="experimental"/>
     	<antcall target="experimental_mobile"/>
-    	<antcall target="vf2js"/>
+    	<antcall target="vf2js_mx"/>
+    	<antcall target="vf2js_s"/>
         <antcall target="compile-automation"/>
     </target>
 	
@@ -242,7 +243,8 @@
     	<ant dir="${basedir}/projects/apache" target="other.locales"/>
     	<ant dir="${basedir}/projects/experimental" target="other.locales"/>
     	<ant dir="${basedir}/projects/experimental_mobile" target="other.locales"/>
-    	<ant dir="${basedir}/projects/vf2js" target="other.locales"/>
+    	<ant dir="${basedir}/projects/vf2js_mx" target="other.locales"/>
+    	<ant dir="${basedir}/projects/vf2js_s" target="other.locales"/>
     </target>
     
     <target name="doc" >
@@ -272,7 +274,8 @@
     	<ant dir="${basedir}/projects/experimental_mobile" target="doc" />
         <!-- removed until this project gets proper documentation -->
         <!--
-        <ant dir="${basedir}/projects/vf2js" target="doc" />
+        <ant dir="${basedir}/projects/vf2js_mx" target="doc" />
+        <ant dir="${basedir}/projects/vf2js_s" target="doc" />
         -->
     </target>
    
@@ -312,7 +315,8 @@
     	<ant dir="${basedir}/projects/apache" target="clean"/>
     	<ant dir="${basedir}/projects/experimental" target="clean"/>
     	<ant dir="${basedir}/projects/experimental_mobile" target="clean"/>
-        <ant dir="${basedir}/projects/vf2js" target="clean"/>
+        <ant dir="${basedir}/projects/vf2js_mx" target="clean"/>
+        <ant dir="${basedir}/projects/vf2js_s" target="clean"/>
         <ant dir="${basedir}/javascript" target="clean"/>
     	<ant dir="${basedir}/themes/AeonGraphical" target="clean"/>
         <!-- delete the FlashBuilder executable directories -->
@@ -513,7 +517,11 @@
         <ant dir="${basedir}/projects/experimental_mobile"/>
     </target>
 	
-    <target name="vf2js" description="Clean build of vf2js.swc">
-        <ant dir="${basedir}/projects/vf2js"/>
+    <target name="vf2js_mx" description="Clean build of vf2js_mx.swc">
+        <ant dir="${basedir}/projects/vf2js_mx"/>
+    </target>
+	
+    <target name="vf2js_s" description="Clean build of vf2js_s.swc">
+        <ant dir="${basedir}/projects/vf2js_s"/>
     </target>
 </project>

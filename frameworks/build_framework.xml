@@ -60,7 +60,8 @@
 	<property name="experimental.dir" value="${projects.dir}/experimental"/>
     <property name="textLayout.dir" value="${projects.dir}/textLayout"/>
     <property name="experimental.dir" value="${projects.dir}/experimental"/>
-    <property name="vf2js.dir" value="${projects.dir}/vf2js"/>
+    <property name="vf2js_mx.dir" value="${projects.dir}/vf2js_mx"/>
+    <property name="vf2js_s.dir" value="${projects.dir}/vf2js_s"/>
 
     <!-- automation -->
     <property name="automation.dir" value="${projects.dir}/automation"/>
@@ -82,9 +83,9 @@
     
     <taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar;${FLEX_HOME}/lib/flexTasks.jar"/>
 
-    <target name="main" depends="check-compile-env,clean,thirdparty-downloads,prepare,textLayout,framework,mx,spark,airframework,airspark,mobilecomponents,rpc,charts,advancedgrids,core,flash-integration,automation-swcs,bundles,themes,sparkskins,spark_dmv,apache,experimental,vf2js"/>
+    <target name="main" depends="check-compile-env,clean,thirdparty-downloads,prepare,textLayout,framework,mx,spark,airframework,airspark,mobilecomponents,rpc,charts,advancedgrids,core,flash-integration,automation-swcs,bundles,themes,sparkskins,spark_dmv,apache,experimental,vf2js_mx,vf2js_s"/>
 
-    <target name="bundles" depends="framework_rb,mx_rb,textLayout_rb,spark_rb,airframework_rb,airspark_rb,mobilecomponents_rb,rpc_rb,charts_rb,advancedgrids_rb,automation-rbs,apache_rb,experimental_rb,vf2js_rb"/>
+    <target name="bundles" depends="framework_rb,mx_rb,textLayout_rb,spark_rb,airframework_rb,airspark_rb,mobilecomponents_rb,rpc_rb,charts_rb,advancedgrids_rb,automation-rbs,apache_rb,experimental_rb,vf2js_mx_rb,vf2js_s_rb"/>
     
     <target name="automation-swcs" 
         depends="automation_agent,automation_dmv,tool,tool_air,automation,automation_air,automation_spark,automation_flashflexkit,automation_air,automation_airspark"
@@ -1070,11 +1071,31 @@
         </compc>
     </target>
 
-    <target name="vf2js" description="Builds the vf2js.swc">
+    <target name="vf2js_mx" description="Builds the vf2js_mx.swc">
         <compc static-link-runtime-shared-libraries="true" fork="true" locale="${locale}" accessible="true" 
-            include-classes="VF2JSClasses" output="${basedir}/libs/vf2js.swc"
-            resource-bundle-list="${vf2js.dir}/bundles.properties">
-            <source-path path-element="${vf2js.dir}/src"/>
+            include-classes="VF2JSClasses" output="${basedir}/libs/vf2js_mx.swc"
+            resource-bundle-list="${vf2js_mx.dir}/bundles.properties">
+            <source-path path-element="${vf2js_mx.dir}/src"/>
+            <library-path />
+            <external-library-path dir="${playerglobal.dir}" includes="playerglobal.swc"/>
+            <external-library-path dir="${basedir}/libs">
+            	<include name="mx.swc"/>
+            </external-library-path>
+            <include-file name="defaults.css" path="${mx.dir}/defaults.css"/>
+            <jvmarg line="${compc.jvm.args}"/>
+            <keep-as3-metadata name="Bindable"/>
+            <keep-as3-metadata name="Managed"/>
+            <keep-as3-metadata name="ChangeEvent"/>
+            <keep-as3-metadata name="NonCommittingChangeEvent"/>
+            <keep-as3-metadata name="Transient"/>
+        </compc>
+    </target>
+
+    <target name="vf2js_s" description="Builds the vf2js_s.swc">
+        <compc static-link-runtime-shared-libraries="true" fork="true" locale="${locale}" accessible="true" 
+            include-classes="VF2JSClasses" output="${basedir}/libs/vf2js_s.swc"
+            resource-bundle-list="${vf2js_s.dir}/bundles.properties">
+            <source-path path-element="${vf2js_s.dir}/src"/>
             <library-path />
             <external-library-path dir="${playerglobal.dir}" includes="playerglobal.swc"/>
             <external-library-path dir="${basedir}/libs">
@@ -1090,12 +1111,27 @@
         </compc>
     </target>
     
-    <target name="vf2js_rb" description="Builds default locale vf2js_rb.swc">
+    <target name="vf2js_mx_rb" description="Builds default locale vf2js_mx_rb.swc">
         <compc static-link-runtime-shared-libraries="true" fork="true" locale="${locale}" 
-            output="${basedir}/locale/${locale}/vf2js_rb.swc">
-            <include-resource-bundles bundle="vf2js"/>
-            <source-path path-element="${vf2js.dir}/bundles/${locale}"/>
-            <source-path path-element="${vf2js.dir}/src"/>
+            output="${basedir}/locale/${locale}/vf2js_mx_rb.swc">
+            <include-resource-bundles bundle="vf2js_mx"/>
+            <source-path path-element="${vf2js_mx.dir}/bundles/${locale}"/>
+            <source-path path-element="${vf2js_mx.dir}/src"/>
+            <external-library-path dir="${playerglobal.dir}" includes="playerglobal.swc"/>
+            <external-library-path dir="${basedir}/libs">
+                <include name="framework.swc"/>
+            </external-library-path>
+            <library-path/>
+            <jvmarg line="${compc.jvm.args}"/>
+        </compc>
+    </target>
+    
+    <target name="vf2js_s_rb" description="Builds default locale vf2js_s_rb.swc">
+        <compc static-link-runtime-shared-libraries="true" fork="true" locale="${locale}" 
+            output="${basedir}/locale/${locale}/vf2js_s_rb.swc">
+            <include-resource-bundles bundle="vf2js_s"/>
+            <source-path path-element="${vf2js_s.dir}/bundles/${locale}"/>
+            <source-path path-element="${vf2js_s.dir}/src"/>
             <external-library-path dir="${playerglobal.dir}" includes="playerglobal.swc"/>
             <external-library-path dir="${basedir}/libs">
                 <include name="framework.swc"/>
@@ -1136,7 +1172,8 @@
                 <include name="flash-integration.swc"/>
             	<include name="apache.swc"/>
             	<include name="experimental.swc"/>	
-                <include name="vf2js.swc"/>	
+                <include name="vf2js_mx.swc"/>	
+                <include name="vf2js_s.swc"/>	
             </fileset>
             <fileset dir="${basedir}/libs/automation">
                 <include name="automation_agent.swc"/>
@@ -1173,7 +1210,8 @@
             	<include name="tool_air_rb.swc"/>
             	<include name="apache_rb.swc"/>
                 <include name="experimental_rb.swc"/>
-                <include name="vf2js_rb.swc"/>
+                <include name="vf2js_mx_rb.swc"/>
+                <include name="vf2js_s_rb.swc"/>
             </fileset>
         </delete>
         <delete dir="${basedir}/projects" includes="*/bundles.properties"/>
